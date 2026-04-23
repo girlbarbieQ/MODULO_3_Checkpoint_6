@@ -14,9 +14,7 @@ Una clase es una plantilla o molde que define cómo serán ciertos objetos dentr
 - Clase --> "Usuario"
 - Objeto --> "Barbara", "Luccia", "Ana"
 
-👉 La clase define qué es un usuario
-
-👉 Los objetos son usuarios concretos
+La clase define qué es un usuario. Los objetos son usuarios concretos.
 
 ### 🧠 ¿Qué contiene una clase?
 Una clase está compuesta principalmente de lo siguiente:
@@ -103,25 +101,25 @@ Usa clases cuando:
 - Tu código empieza a crecer
 - Quieres reutilizar lógica
 
-### ¿❌ Cuándo NO usar clases?
+### ❌ ¿Cuándo NO usar clases?
 No siempre son necesarias. Evitalas cuando:
 - El programa es muy pequeño
 - Solo necesitas funciones simples
 - No hay estructuras complejas
 
 ### ⚠️ Errores comunes
-#### 1. No usar self
+#### ❌ 1. No usar self
 ````python
 def __init__(name): #MAL
 
 def __init__(self, name): #BIEN
 ````
-#### 2. Confundir clases con objetos
+#### ❌ 2. Confundir clases con objetos
 ````python
 User #CLASE
 User('Ana', 20) #OBJETO
 ````
-#### 3. No entender que cada objeto es independiente
+#### ❌ 3. No entender que cada objeto es independiente
 ````python
 user1 = User('Ana', 20)
 user2 = User('Luis', 25)
@@ -135,3 +133,211 @@ user2 = User('Luis', 25)
 - Método --> acción
 - self --> el objeto actual
 
+## 🔹 ¿Qué método se ejecuta automáticamente cuando se crea una instancia de una clase?
+El método que se ejecuta automáticamente cuando se crea una instancia (objeto) de una clase en Python es:
+````plain text
+__init__
+````
+
+### 🧠 ¿Qué es __init__?
+El método __init__ es un método especial (también llamado método dunder) que actúa como constructor de la clase.
+Se ejecuta automáticamente en el momento en que se crea un objeto a partir de esa clase.
+
+#### 💡 Traducción simple
+👉 “es el método que se encarga de preparar el objeto cuando nace”
+
+### 🧠 ¿Para qué sirve?
+El método __init__ se utiliza para:
+- Inicializar los datos del objeto
+- Asignar valores a los atributos
+- Preparar el objeto para su uso
+
+### 💻 Ejemplo básico
+````python
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+person1 = Person("Luccia")
+````
+#### 📌 Explicación
+En este ejemplo, se define una clase llamada Person. Dentro de ella, el método __init__ recibe un parámetro (name) y lo asigna al objeto mediante self.name.
+
+Cuando se crea el objeto person1 = Person("Luccia"), Python ejecuta automáticamente el método __init__, pasando el valor "Luccia" como argumento. Como resultado, el objeto queda inicializado con ese dato.
+
+### 🧠 ¿Qué significa self aquí?
+Self representa el objeto que se está creando.
+````python
+self.name = name
+````
+👉 significa:
+“guarda este valor dentro de ESTE objeto”
+
+### 🧠 ¿Qué pasa si no usas _init_?
+Puedes crear una clase sin _init_, pero no podrás inicializar datos fácilmente.
+````python
+class Person:
+    pass
+
+p = Person()
+````
+Esto crea un objeto vacío, sin información.
+
+### ⚠️ Errores comunes
+#### ❌ 1. Olvidar self
+````python
+def __init__(name):  # MAL
+def __init__(self, name):  # BIEN
+````
+#### ❌ 2. Pensar que hay que llamarlo manualmente
+````python
+person1.__init__("Luccia")  # NO se hace
+````
+Python lo ejecuta automáticamente
+
+### 💻 Ejemplo más completo
+````python
+class Car:
+    def __init__(self, brand, year):
+        self.brand = brand
+        self.year = year
+
+car1 = Car("Toyota", 2020)
+````
+#### 📌 Explicación
+Cuando se crea car1, Python ejecuta automáticamente __init__, asignando "Toyota" a brand y 2020 a year. 
+Esto permite que el objeto tenga sus propios datos desde el momento en que se crea.
+
+### 🧠 ¿Por qué es importante?
+El método __init__ es fundamental porque:
+
+- Permite crear objetos ya configurados
+- Evita tener que asignar datos manualmente después
+- Hace el código más limpio y organizado
+
+## 🔹 ¿Cuáles son los tres verbos de API?
+Los tres verbos principales de una API son:
+
+👉 GET, POST y DELETE
+
+Estos verbos forman parte del protocolo HTTP y se utilizan para indicar qué acción quieres realizar sobre los datos.
+
+### 🧠 ¿Qué es un verbo en una API?
+Un verbo HTTP es una instrucción que le dice al servidor qué quieres hacer.
+
+👉 Es como decir:
+- “quiero ver datos”
+- “quiero crear algo”
+- “quiero eliminar algo”
+
+### 🧠 Los tres verbos principales
+#### ✅ 1. GET --> Obtener datos
+El verbo GET se utiliza para consultar información.
+- No modifica nada
+- Solo lee datos
+
+##### 💻 Ejemplo
+````http
+GET /users
+````
+👉 Esto significa:
+
+“dame todos los usuarios”
+
+###### 📌 Uso real
+- Ver una lista de productos
+- Ver un perfil de usuario
+- Obtener datos de una API
+  
+###### ⚠️ Importante
+👉 GET es seguro
+
+👉 No cambia la base de datos
+
+#### ✅ 2. POST --> Crear datos
+El verbo POST se utiliza para enviar información al servidor y crear nuevos datos.
+
+##### 💻 Ejemplo
+````http
+POST /users
+````
+````json
+{
+  "name": "Luccia",
+  "age": 23
+}
+````
+👉 Esto significa:
+
+“crea un nuevo usuario con estos datos”
+
+###### 📌 Uso real
+- Crear una cuenta
+- Publicar un comentario
+- Subir información
+
+###### ⚠️ Importante
+👉 POST sí modifica la base de datos
+
+#### ✅ 3. DELETE --> Eliminar datos
+El verbo DELETE se utiliza para borrar información del servidor.
+
+##### 💻 Ejemplo
+````http
+DELETE /users/1
+````
+👉 Esto significa:
+
+“elimina el usuario con id 1”
+
+###### 📌 Uso real
+
+- Eliminar una cuenta
+- Borrar un producto
+- Quitar un comentario
+
+### 🧠 ¿Cómo funcionan juntos?
+En una API, estos verbos permiten realizar operaciones básicas sobre los datos.
+
+👉 Esto se conoce como operaciones CRUD:
+
+- GET --> Read (leer)
+- POST --> Create (crear)
+- DELETE --> Delete (eliminar)
+
+#### 💻 Ejemplo completo
+Imagina una app de usuarios:
+- GET --> ver usuarios
+- POST --> crear usuario
+- DELETE --> eliminar usuario
+
+#### 💡 Nota importante
+Existen más verbos como:
+- PUT --> reemplazar datos
+- PATCH --> modificar parcialmente
+
+Pero GET, POST y DELETE son los más básicos y utilizados al empezar.
+
+### ⚠️ Errores comunes
+#### ❌ 1. Confundir GET con POST
+-  GET es para leer
+- POST es para crear
+
+#### ❌ 2. Pensar que GET puede modificar datos
+GET NUNCA debe cambiar información
+
+#### ❌ 3. Usar DELETE sin identificar recurso
+````http
+DELETE /users  #MAL
+DELETE /users/1  #BIEN
+````
+### 🧠 ¿Por qué son importantes?
+Porque permiten que el cliente (frontend) y el servidor (backend) se comuniquen correctamente.
+
+👉 Sin estos verbos, no podrías:
+- ver datos
+- crear información
+- eliminar contenido
+
+### 🧠 En una frase
+👉 Los verbos de API (GET, POST y DELETE) indican qué acción quieres realizar sobre los datos en un servidor.
