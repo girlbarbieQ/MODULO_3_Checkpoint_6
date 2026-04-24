@@ -5,6 +5,8 @@ Las clases en Python se utilizan para organizar el código, representar objetos 
 construir programas más estructurados, reutilizables y escalables.
 Son uno de los conceptos fundamentales de la Programación Orientada a Objetos (POO)
 
+![clases](./img/clases.jpg)
+
 ### 🧠 ¿Qué es una clase?
 Una clase es una plantilla o molde que define cómo serán ciertos objetos dentro de un programa.
 
