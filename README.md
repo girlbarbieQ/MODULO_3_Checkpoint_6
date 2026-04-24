@@ -239,6 +239,8 @@ El verbo GET se utiliza para consultar información.
 - No modifica nada
 - Solo lee datos
 
+![verbos](./img/verbos.jpg)
+
 ##### 💻 Ejemplo
 ````http
 GET /users
@@ -362,6 +364,8 @@ Las bases de datos SQL (relacionales) organizan la información de forma muy est
 - Filas
 - Columnas
 - Relaciones entre tablas
+
+![mongodb](./img/mongodb.jpg)
 
 #### 💻 Ejemplo en SQL
 Tabla users
@@ -906,6 +910,8 @@ Son métodos especiales que Python usa automáticamente para definir comportamie
 ### 🔥 Idea clave
 - No los llamas tú directamente (normalmente)
 - Python los ejecuta por ti automáticamente
+
+![dunder](./img/dunder.jpg)
 
 ### 💻 Ejemplo básico
 ````python
