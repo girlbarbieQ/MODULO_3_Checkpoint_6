@@ -138,7 +138,6 @@ El método que se ejecuta automáticamente cuando se crea una instancia (objeto)
 ````plain text
 __init__
 ````
-
 ### 🧠 ¿Qué es __init__?
 El método __init__ es un método especial (también llamado método dunder) que actúa como constructor de la clase.
 Se ejecuta automáticamente en el momento en que se crea un objeto a partir de esa clase.
@@ -486,6 +485,8 @@ MongoDB es una base de datos NoSQL que almacena información en documentos flexi
 ## 🔹 ¿Qué es una API?
 Una API (Application Programming Interface) es un sistema que permite que diferentes aplicaciones o programas se comuniquen entre sí de forma estructurada y controlada.
 
+![api](./img/api.jpg)
+
 ### 🧠 ¿Qué significa API?
 - Application Programming Interface
 - Interfaz de Programación de Aplicaciones
@@ -613,6 +614,8 @@ Postman es un programa que te permite enviar peticiones a una API y ver las resp
 #### 💡 Traducción simple
 Es como un “simulador” de cliente (frontend)
 Pero sin tener que programar una app.
+
+![postman](./img/postman.jpg)
 
 ### 🧠 ¿Para qué sirve Postman?
 Postman se utiliza principalmente para:
@@ -791,6 +794,8 @@ print(cat.speak())
 Guau
 Miau
 ````
+![polimorfismo](./img/polimorfo.jpg)
+
 ### 🧠 ¿Dónde está el polimorfismo?
 En que usamos el mismo método (speak) pero cada objeto responde diferente
 
@@ -1083,6 +1088,8 @@ Después de ejecutar la función
 ````python
 say_hello = my_decorator(say_hello)
 ````
+![decoradores](./img/decoradores.jpg)
+
 #### 💥 CLAVE
 El decorador reemplaza la función original por una versión modificada
 
