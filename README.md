@@ -874,3 +874,159 @@ Python no tiene sobrecarga clásica como otros lenguajes
 
 ### 🧠 En una frase
 👉 El polimorfismo es la capacidad de diferentes objetos de responder de forma distinta al mismo método.
+
+
+## 🔹 ¿Qué es un método dunder en Python?
+Un método dunder (también llamado método mágico) es un método especial en Python que empieza y termina con doble guion bajo.
+
+👉 Ejemplo:
+````phyton
+__init__
+__str__
+__len__
+````
+### 🧠 ¿Qué significa “dunder”?
+- “dunder” = double underscore (doble guion bajo)
+
+### 🧠 Definición clara
+Son métodos especiales que Python usa automáticamente para definir comportamientos de los objetos.
+
+#### 💡 Traducción simple
+👉 Son funciones “internas” que le dicen a Python cómo debe comportarse un objeto.
+
+### 🔥 Idea clave
+- No los llamas tú directamente (normalmente)
+- Python los ejecuta por ti automáticamente
+
+### 💻 Ejemplo básico
+````python
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+p = Person("Luccia")
+````
+#### 📌 ¿Qué pasa aquí?
+- Cuando haces Person("Luccia")
+- Python ejecuta automáticamente:
+````python
+__init__
+````
+
+### 🧠 ¿Para qué sirven los dunder methods?
+Sirven para:
+#### ✅ 1. Inicializar objetos
+````python
+__init__
+````
+👉 Se ejecuta al crear un objeto
+
+#### ✅ 2. Representar objetos como texto
+````python
+__str__
+````
+👉 Define qué se muestra al hacer print(objeto)
+
+#### ✅ 3. Representación técnica
+````python
+__repr__
+````
+👉 Para debugging
+
+#### ✅ 4. Operadores
+````python
+__add__
+__sub__
+````
+👉 Permiten usar +, -, etc. con objetos
+
+### 💻 Ejemplo importante (str)
+````python
+class User:
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return f"Usuario: {self.name}"
+
+u = User("Luccia")
+print(u)
+````
+📤 Resultado
+````plain text
+Usuario: Luccia
+````
+### 🧠 Sin str
+Saldría algo feo tipo:
+```` plain text
+<__main__.User object at 0x...>
+````
+### 💻 Ejemplo (len)
+````python
+class MyList:
+    def __init__(self, items):
+        self.items = items
+
+    def __len__(self):
+        return len(self.items)
+
+lista = MyList([1, 2, 3])
+print(len(lista))
+````
+#### 📌 ¿Qué pasa aquí?
+len(lista) llama automáticamente a:
+````python
+__len__()
+````
+### 🔥 Ejemplo (add)
+````python
+class Number:
+    def __init__(self, value):
+        self.value = value
+
+    def __add__(self, other):
+        return self.value + other.value
+
+n1 = Number(5)
+n2 = Number(3)
+
+print(n1 + n2)
+````
+#### 📌 ¿Qué está pasando?
+👉 n1 + n2 llama a:
+````python
+__add__(n1, n2)
+````
+### 🧠 ¿Por qué son tan importantes?
+Porque permiten que tus clases:
+- se comporten como tipos nativos
+- sean más intuitivas
+- integren con Python de forma natural
+
+### ⚠️ Errores comunes
+#### ❌ Pensar que son opcionales sin importancia
+Son clave para hacer código profesional
+
+#### ❌ Intentar llamarlos directamente
+No se usan así:
+````python
+obj.__str__()
+````
+👉 Se usan a través de Python:
+````python
+print(obj)
+````
+#### ❌ No entender cuándo se ejecutan
+Se ejecutan automáticamente en momentos específicos
+
+### 🧠 Analogía simple
+Son como “reglas ocultas” que definen cómo funciona un objeto
+
+### 🔥 Ejemplo mental
+
+👉 + en números --> suma
+
+👉 + en tus clases --> tú decides qué hace
+
+### 🧠 En una frase
+Los métodos dunder son métodos especiales que Python usa automáticamente para definir el comportamiento de los objetos.
