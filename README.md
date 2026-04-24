@@ -153,6 +153,8 @@ El método __init__ se utiliza para:
 - Asignar valores a los atributos
 - Preparar el objeto para su uso
 
+![init](./img/init.jpg)
+
 ### 💻 Ejemplo básico
 ````python
 class Person:
