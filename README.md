@@ -341,3 +341,145 @@ Porque permiten que el cliente (frontend) y el servidor (backend) se comuniquen 
 
 ### 🧠 En una frase
 👉 Los verbos de API (GET, POST y DELETE) indican qué acción quieres realizar sobre los datos en un servidor.
+
+## 🔹 ¿Es MongoDB una base de datos SQL o NoSQL?
+MongoDB es una base de datos:
+
+👉 NoSQL (Not Only SQL)
+
+Esto significa que no utiliza el modelo tradicional de bases de datos relacionales (como MySQL o PostgreSQL), sino un modelo diferente basado en documentos.
+
+### 🧠 ¿Qué significa realmente NoSQL?
+El término NoSQL no significa “sin SQL”, sino: “no solo SQL”. 
+Es decir, engloba sistemas de bases de datos que no siguen la estructura clásica de tablas, filas y columnas.
+
+### 🧠 ¿Cómo funcionan las bases de datos SQL?
+Las bases de datos SQL (relacionales) organizan la información de forma muy estructurada. Usan:
+- Tablas
+- Filas
+- Columnas
+- Relaciones entre tablas
+
+#### 💻 Ejemplo en SQL
+Tabla users
+
+| id | Name | Age |
+|----|------|-----|
+| 1  | Ana  | 20  |
+| 2  | Luis | 30  |
+
+Todo debe seguir esa estructura obligatoriamente.
+
+#### ⚠️ Característica clave de SQL
+Estructura rígida (schema fijo). 
+Antes de guardar datos, debes definir cómo serán.
+
+### 🟩 ¿Cómo funciona MongoDB?
+MongoDB utiliza un modelo completamente diferente.
+
+👉 En lugar de tablas, usa:
+- Bases de datos
+- Colecciones
+- Documentos
+
+### 🧠 Estructura en MongoDB
+- Base de datos --> contenedor general
+- Colección --> grupo de documentos (similar a tabla)
+- Documento --> unidad de datos (similar a fila, pero más flexible)
+
+#### 💻 Ejemplo de documento
+````json
+{
+  "name": "Luccia",
+  "age": 23,
+  "skills": ["Python", "MongoDB"]
+}
+````
+👉 Esto es un documento real en MongoDB.
+
+### 🔥 Diferencia fundamental
+- SQL --> estructura fija
+- MongoDB --> estructura flexible
+
+### 🧠 ¿Qué significa que MongoDB sea flexible?
+En MongoDB, los documentos dentro de la misma colección no tienen que tener la misma estructura.
+
+#### 💻 Ejemplo
+````json
+{ "name": "Ana" }
+{ "name": "Luis", "age": 30 }
+{ "name": "Carlos", "age": 25, "city": "Madrid" }
+````
+👉 Todos pueden coexistir sin problema.
+
+##### 💥 Esto es clave
+No necesitas definir previamente todas las columnas como en SQL.
+
+### 🧠 ¿Por qué se usa MongoDB?
+MongoDB se utiliza porque permite trabajar de forma más rápida y flexible, especialmente en aplicaciones modernas.
+
+### 🔥 Ventajas principales
+#### ✅ 1. Flexibilidad
+Puedes cambiar la estructura de los datos sin romper la base de datos.
+
+#### ✅ 2. Facilidad de uso
+Trabaja con JSON, lo cual es muy intuitivo.
+
+#### ✅ 3. Escalabilidad
+MongoDB está diseñado para escalar horizontalmente (añadir más servidores).
+
+#### ✅ 4. Ideal para APIs
+Encaja perfectamente con aplicaciones backend modernas.
+
+### ⚠️ Desventajas de MongoDB
+#### ❌ 1. Menor control estructural
+Al no tener esquema fijo, puede volverse desordenado.
+
+#### ❌ 2. Relaciones limitadas
+No es ideal para datos muy relacionados entre sí.
+
+#### ❌ 3. Integridad de datos
+En SQL es más fácil garantizar consistencia estricta.
+
+### 🔍 Comparación directa
+
+| Característica | SQL        | MongoDB    |
+|----------------|-----------|------------|
+| Estructura     | Rígida    | Flexible   |
+| Datos          | Tablas    | Documentos |
+| Relación       | Alta      | Baja       |
+| Escalabilidad  | Vertical  | Horizontal |
+| Uso            | Tradicional | Moderno  |
+
+### ✅ ¿Cuándo usar MongoDB?
+- Aplicaciones web modernas
+- APIs REST
+- Proyectos con datos cambiantes
+- stemas que necesitan escalar rápido
+
+### ❌ ¿Cuándo NO usar MongoDB?
+- Sistemas bancarios
+- Datos altamente relacionales
+- Proyectos con reglas estrictas de integridad
+
+#### 💡 Ejemplo real comparado
+##### 🟦 SQL
+````sql
+SELECT * FROM users WHERE name = 'Ana';
+````
+##### 🟩 MongoDB
+````javascript
+db.users.find({ name: "Ana" })
+````
+Mongo es más cercano a cómo piensas los datos en código.
+
+### 🧠 Analogía simple
+- SQL = Excel (todo estructurado)
+- MongoDB = objetos JSON (más libre)
+
+### 🔥 Idea clave para recordar
+MongoDB es NoSQL porque no usa tablas, sino documentos flexibles que pueden adaptarse fácilmente a distintos tipos de datos.
+
+### 🧠 En una frase
+MongoDB es una base de datos NoSQL que almacena información en documentos flexibles tipo JSON, permitiendo una mayor adaptabilidad frente a los sistemas tradicionales basados en tablas.
+
