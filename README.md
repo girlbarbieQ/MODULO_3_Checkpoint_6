@@ -603,3 +603,274 @@ Consulta base de datos
 
 ### 🧠 En una frase
 Una API es un intermediario que permite que diferentes aplicaciones se comuniquen intercambiando datos de forma estructurada.
+
+## 🔹 ¿Qué es Postman?
+Postman es una herramienta que permite probar, construir y trabajar con APIs de forma sencilla, sin necesidad de crear una aplicación completa.
+
+### 🧠 Definición clara
+Postman es un programa que te permite enviar peticiones a una API y ver las respuestas.
+
+#### 💡 Traducción simple
+Es como un “simulador” de cliente (frontend)
+Pero sin tener que programar una app.
+
+### 🧠 ¿Para qué sirve Postman?
+Postman se utiliza principalmente para:
+#### ✅ 1. Probar APIs
+Puedes comprobar si una API funciona correctamente.
+
+👉 Ejemplo:
+- ver si devuelve datos
+- comprobar errores
+- validar respuestas
+
+#### ✅ 2. Enviar peticiones HTTP
+Puedes hacer:
+- GET --> obtener datos
+- POST --> crear datos
+- PUT/PATCH --> actualizar
+- DELETE --> eliminar
+
+#### ✅ 3. Ver respuestas del servidor
+Postman te muestra:
+- JSON
+- status code (200, 404, etc.)
+- headers
+- tiempo de respuesta
+
+#### ✅ 4. Debuggear (detectar errores)
+Si algo falla en tu API:
+
+👉 Postman te ayuda a ver exactamente qué está pasando
+
+### 🔄 ¿Cómo funciona Postman?
+Flujo básico:
+
+1. Tú configuras una petición
+2. La envías
+3. El servidor responde
+4. Ves el resultado
+
+#### 💻 Ejemplo práctico
+##### Petición
+````http
+GET https://api.ejemplo.com/users
+````
+##### Respuesta
+````json
+[
+  { "name": "Ana" },
+  { "name": "Luis" }
+]
+````
+👉 Todo esto lo ves directamente en Postman.
+
+### 🧠 Partes de Postman
+#### 🔻 1. URL
+👉 A dónde haces la petición
+
+#### 🔻 2. Método HTTP
+👉 GET, POST, PUT, DELETE
+
+#### 🔻 3. Headers
+👉 Información adicional (ej: autenticación)
+
+#### 🔻 4. Body
+👉 Datos que envías (en POST o PUT)
+
+#### 🔻 5. Response
+👉 Lo que devuelve el servidor
+
+### 💻 Ejemplo completo en Postman
+#### Crear un usuario
+````http
+POST https://api.ejemplo.com/users
+````
+#### Body (JSON)
+````json
+{
+  "name": "Luccia",
+  "age": 23
+}
+````
+#### Respuesta
+````json
+{
+  "id": 1,
+  "name": "Luccia",
+  "age": 23
+}
+````
+### 🔥 ¿Por qué es tan importante Postman?
+Porque te permite:
+- trabajar sin frontend
+- probar APIs rápidamente
+- detectar errores
+- entender cómo funciona un backend
+
+### ⚠️ Errores comunes
+#### Pensar que Postman crea APIs
+- No crea APIs
+- Solo las prueba
+
+#### Pensar que es obligatorio en producción
+Es una herramienta de desarrollo
+
+#### No usar bien los métodos HTTP
+GET ≠ POST
+
+### 🧠 Analogía simple
+👉 Postman = control remoto de una API
+- eliges acción
+- envías comando
+- ves resultado
+
+### 🔥 Ventajas
+- Fácil de usar
+- Visual
+- Rápido
+- No necesitas frontend
+
+### ⚠️ Desventajas
+- No reemplaza una app real
+- No es backend
+- Solo sirve para pruebas
+
+### ✅ ¿Cuándo usar Postman?
+- Cuando estás desarrollando una API
+- Cuando quieres probar endpoints
+- Cuando necesitas debuggear
+
+### ❌ ¿Cuándo NO usarlo?
+- Para usuarios finales
+- Para construir interfaces
+
+### 🧠 En una frase
+👉 Postman es una herramienta que permite enviar peticiones a una API y visualizar sus respuestas para probar y depurar su funcionamiento.
+
+## 🔹 ¿Qué es el polimorfismo?
+El polimorfismo es un concepto de la programación orientada a objetos (POO) que permite que diferentes objetos respondan de manera distinta al mismo método.
+
+### 🧠 Definición clara
+El polimorfismo permite usar el mismo nombre de método en diferentes clases, pero con comportamientos distintos.
+
+#### 💡 Traducción simple
+“Una misma acción, diferentes comportamientos”
+
+### 🧠 ¿Por qué es importante?
+El polimorfismo permite:
+- escribir código más flexible
+- reutilizar lógica
+- trabajar con diferentes objetos de forma uniforme
+
+### 🔥 Idea clave
+Puedes llamar al mismo método en distintos objetos y cada uno hace algo diferente
+
+### 💻 Ejemplo básico
+````python
+class Dog:
+    def speak(self):
+        return "Guau"
+
+class Cat:
+    def speak(self):
+        return "Miau"
+
+dog = Dog()
+cat = Cat()
+
+print(dog.speak())
+print(cat.speak())
+````
+#### 📌 ¿Qué está pasando aquí?
+- Ambos tienen el método .speak()
+- Pero cada uno devuelve algo distinto
+
+#### 📤 Resultado
+````plain text
+Guau
+Miau
+````
+### 🧠 ¿Dónde está el polimorfismo?
+En que usamos el mismo método (speak) pero cada objeto responde diferente
+
+### 🔥 Ejemplo más potente
+````python
+def make_sound(animal):
+    print(animal.speak())
+
+make_sound(Dog())
+make_sound(Cat())
+````
+#### 📌 ¿Qué está pasando aquí?
+- La función no sabe si es perro o gato
+- Solo sabe que tiene .speak()
+
+#### 💥 Esto es CLAVE
+- No importa el tipo
+- Importa el comportamiento
+
+### 🧠 Tipos de polimorfismo
+#### 🔻 1. Polimorfismo por herencia
+Cuando varias clases heredan de una clase base y redefinen métodos.
+##### 💻 Ejemplo
+````python
+class Animal:
+    def speak(self):
+        pass
+
+class Dog(Animal):
+    def speak(self):
+        return "Guau"
+````
+#### 🔻 2. Polimorfismo por duck typing
+“Si camina como pato y suena como pato… es un pato”
+##### 💻 Ejemplo
+````python
+class Car:
+    def move(self):
+        return "Driving"
+
+class Person:
+    def move(self):
+        return "Walking"
+````
+Ambos tienen .move() → polimorfismo
+
+### 🧠 ¿Para qué se usa?
+#### ✅ 1. Reutilizar código
+Puedes usar una misma función para diferentes objetos.
+
+#### ✅ 2. Simplificar lógica
+No necesitas hacer:
+````python
+if type == "dog":
+````
+#### ✅ 3. Crear sistemas más escalables
+Puedes añadir nuevas clases sin cambiar el código existente.
+
+### ⚠️ Errores comunes
+#### ❌ Pensar que es solo herencia
+No, también puede existir sin herencia
+
+#### ❌ Confundirlo con sobrecarga de funciones
+Python no tiene sobrecarga clásica como otros lenguajes
+
+### 🧠 Analogía simple
+👉 Un botón de “play”
+- en Spotify → reproduce música
+- en Netflix → reproduce vídeo
+
+👉 mismo botón, distinto comportamiento
+
+### 🔥 Ventajas
+- código más limpio
+- más flexible
+- fácil de extender
+
+⚠️ Desventajas
+- puede ser más difícil de entender al inicio
+- requiere buena organización
+
+### 🧠 En una frase
+👉 El polimorfismo es la capacidad de diferentes objetos de responder de forma distinta al mismo método.
