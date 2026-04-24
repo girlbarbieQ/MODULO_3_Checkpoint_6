@@ -886,7 +886,7 @@ __str__
 __len__
 ````
 ### 🧠 ¿Qué significa “dunder”?
-- “dunder” = double underscore (doble guion bajo)
+“dunder” = double underscore (doble guion bajo)
 
 ### 🧠 Definición clara
 Son métodos especiales que Python usa automáticamente para definir comportamientos de los objetos.
@@ -1030,3 +1030,164 @@ Son como “reglas ocultas” que definen cómo funciona un objeto
 
 ### 🧠 En una frase
 Los métodos dunder son métodos especiales que Python usa automáticamente para definir el comportamiento de los objetos.
+
+## 🔹 ¿Qué es un decorador de Python?
+Un decorador en Python es una herramienta que permite modificar o extender el comportamiento de una función o método sin cambiar su código original.
+
+### 🧠 Definición clara
+Un decorador es una función que envuelve otra función para añadirle funcionalidad extra.
+#### 💡 Traducción simple
+Es como “ponerle algo encima” a una función para que haga más cosas.
+
+### 🔥 Idea clave
+- No cambias la función
+- La “envuelves” y le añades comportamiento
+
+### 🧠 ¿Por qué se usan?
+Los decoradores permiten:
+- reutilizar código
+- evitar repetir lógica
+- mantener el código limpio
+- añadir funcionalidades sin modificar lo original
+
+### 💻 Ejemplo básico
+````python
+def my_decorator(func):
+    def wrapper():
+        print("Antes de ejecutar la función")
+        func()
+        print("Después de ejecutar la función")
+    return wrapper
+````
+#### 📌 ¿Qué hace esto?
+- my_decorator recibe una función
+- crea una nueva función (wrapper)
+- ejecuta cosas antes y después
+
+### 💻 Aplicando el decorador
+````python
+@my_decorator
+def say_hello():
+    print("Hola")
+
+say_hello()
+````
+📤 Resultado
+````plain text
+Antes de ejecutar la función
+Hola
+Después de ejecutar la función
+```` 
+#### 📌 ¿Qué pasó aquí realmente?
+👉 @my_decorator es equivalente a:
+````python
+say_hello = my_decorator(say_hello)
+````
+#### 💥 CLAVE
+El decorador reemplaza la función original por una versión modificada
+
+### 🧠 Estructura de un decorador
+````python
+def decorador(func):
+    def wrapper():
+        # código antes
+        func()
+        # código después
+    return wrapper
+````
+### 🔥 Decoradores con argumentos
+````python
+def decorator(func):
+    def wrapper(name):
+        print("Hola antes")
+        func(name)
+        print("Adiós después")
+    return wrapper
+
+@decorator
+def greet(name):
+    print(f"Hola {name}")
+
+greet("Luccia")
+````
+### 🧠 Decoradores reales en Python
+#### 🔻 @property
+👉 Convierte un método en atribut
+````python
+class User:
+    def __init__(self, name):
+        self._name = name
+
+    @property
+    def name(self):
+        return self._name
+````
+#### 🔻 @staticmethod
+👉 Método sin acceso a self
+
+#### 🔻 @classmethod
+👉 Trabaja con la clase en lugar de la instancia
+
+### 🧠 ¿Para qué se usan en la vida real?
+#### ✅ Logging
+Registrar acciones
+
+#### ✅ Autenticación
+Verificar usuarios
+
+#### ✅ Validación
+Comprobar datos
+
+#### ✅ Control de acceso
+Permisos
+
+### 💻 Ejemplo real (login)
+````python
+def require_login(func):
+    def wrapper():
+        print("Verificando usuario...")
+        func()
+    return wrapper
+
+@require_login
+def dashboard():
+    print("Bienvenido al panel")
+
+dashboard()
+````
+### 🧠 ¿Por qué son tan importantes?
+Porque permiten:
+- código limpio
+- separación de responsabilidades
+- reutilización avanzada
+
+### ⚠️ Errores comunes
+#### ❌ Pensar que modifican la función directamente
+- No la modifican
+- La envuelven
+
+#### ❌ No entender el wrapper
+El wrapper es la clave del decorador
+
+#### ❌ Olvidar devolver la función
+Sin return wrapper no funciona
+
+### 🧠 Analogía simple
+👉 Decorador = filtro de Instagram 📸
+
+- la foto es la función
+- el filtro añade efectos
+- la foto sigue siendo la misma
+
+### 🔥 Ventajas
+- reutilización
+- limpieza de código
+- modularidad
+- flexibilidad
+
+### ⚠️ Desventajas
+- puede ser difícil al principio
+- puede complicar la lectura si se abusa
+
+### 🧠 En una frase
+Un decorador es una función que envuelve otra función para añadirle comportamiento sin modificar su código original.
