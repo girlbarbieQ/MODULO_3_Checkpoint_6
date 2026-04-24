@@ -483,3 +483,123 @@ MongoDB es NoSQL porque no usa tablas, sino documentos flexibles que pueden adap
 ### 🧠 En una frase
 MongoDB es una base de datos NoSQL que almacena información en documentos flexibles tipo JSON, permitiendo una mayor adaptabilidad frente a los sistemas tradicionales basados en tablas.
 
+## 🔹 ¿Qué es una API?
+Una API (Application Programming Interface) es un sistema que permite que diferentes aplicaciones o programas se comuniquen entre sí de forma estructurada y controlada.
+
+### 🧠 ¿Qué significa API?
+- Application Programming Interface
+- Interfaz de Programación de Aplicaciones
+
+#### 💡 Traducción simple
+Una API es un intermediario que permite que dos sistemas se entiendan.
+
+### 🧠 ¿Cómo funciona una API?
+Una API actúa como puente entre:
+- 👤 Cliente (frontend, app, navegador)
+- 🖥️ Servidor (backend, base de datos)
+
+#### 🔄 Flujo básico
+Cliente --> API --> Servidor --> API --> Cliente
+
+### 💻 Ejemplo real
+Cuando entras en una app y ves datos:
+- Tu app hace una petición a la API
+- La API consulta el servidor
+- Devuelve la información
+
+### 🔥 Ejemplo práctico
+````http
+GET /users
+````
+Esto significa: “quiero obtener la lista de usuarios”
+
+### 📥 Respuesta de la API
+````json
+[
+  { "name": "Ana", "age": 20 },
+  { "name": "Luis", "age": 25 }
+]
+````
+### 🧠 ¿Para qué sirve una API?
+Las APIs permiten:
+#### ✅ 1. Obtener datos
+👉 Ejemplo:
+- ver usuarios
+- ver productos
+
+#### ✅ 2. Enviar información
+👉 Ejemplo:
+- crear cuenta
+- publicar contenido
+
+#### ✅ 3. Conectar sistemas
+👉 Ejemplo:
+- app --> servidor
+- web --> base de datos
+
+### 🔍 Tipos de APIs
+#### 🔻 1. APIs REST
+👉 Las más comunes
+👉 Usan HTTP (GET, POST, etc.)
+
+#### 🔻 2. APIs privadas
+👉 Uso interno de una empresa
+
+#### 🔻 3. APIs públicas
+👉 Disponibles para desarrolladores
+
+### 💡 Ejemplo real
+- API de Instagram
+- API de Google Maps
+- API de Stripe
+
+### 🔥 ¿Por qué son importantes?
+Sin APIs:
+
+❌ No podrías:
+- iniciar sesión
+- ver datos en apps
+- conectar frontend y backend
+
+### 💻 Ejemplo completo
+#### Paso 1: Cliente pide datos
+````http
+GET /books
+````
+#### Paso 2: API procesa
+Consulta base de datos
+
+#### Paso 3: API responde
+````json
+[
+  { "name": "Blink" },
+  { "name": "Deep Work" }
+]
+````
+### ⚠️ Errores comunes
+#### ❌ Pensar que API es una base de datos
+- No lo es
+- Es un intermediario
+
+#### ❌ Pensar que API tiene interfaz
+- No tiene interfaz visual
+- Devuelve datos
+
+#### ❌ Confundir API con backend
+- API es parte del backend
+
+### 🧠 Analogía simple
+
+👉 API = camarero en un restaurante
+- tú (cliente) haces pedido
+- el camarero (API) lo lleva
+- cocina (servidor) responde
+- camarero te trae la comida
+
+### 🔥 Ventajas
+- Separación de sistemas
+- Reutilización
+- Escalabilidad
+
+### 🧠 En una frase
+Una API es un intermediario que permite que diferentes aplicaciones se comuniquen intercambiando datos de forma estructurada.
